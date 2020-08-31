@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "car-themed-app", "car-themed-app\car-themed-app.csproj", "{96A702EB-AA2D-4099-BE4A-51FBA13DFF0A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "car-themed-app-Repository", "car-themed-app-Repository\car-themed-app-Repository.csproj", "{E6F26FEC-8CB0-4EEE-93A5-62856183DF4A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "car-themed-app-DataLayer", "car-themed-app-DataLayer\car-themed-app-DataLayer.csproj", "{640DAE7B-34A3-451F-8483-F0BEC192DDF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "car-themed-app-Contracts", "car-themed-app-Contracts\car-themed-app-Contracts.csproj", "{82C76F1D-A223-4A58-B40F-C76E6B6830C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "car-themed-app-IntegrationTests", "car-themed-app-IntegrationTests\car-themed-app-IntegrationTests.csproj", "{D2737B67-0A5D-47A5-8CE6-1B1EA43A1D0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96A702EB-AA2D-4099-BE4A-51FBA13DFF0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96A702EB-AA2D-4099-BE4A-51FBA13DFF0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96A702EB-AA2D-4099-BE4A-51FBA13DFF0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96A702EB-AA2D-4099-BE4A-51FBA13DFF0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6F26FEC-8CB0-4EEE-93A5-62856183DF4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6F26FEC-8CB0-4EEE-93A5-62856183DF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6F26FEC-8CB0-4EEE-93A5-62856183DF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6F26FEC-8CB0-4EEE-93A5-62856183DF4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{640DAE7B-34A3-451F-8483-F0BEC192DDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640DAE7B-34A3-451F-8483-F0BEC192DDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640DAE7B-34A3-451F-8483-F0BEC192DDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640DAE7B-34A3-451F-8483-F0BEC192DDF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82C76F1D-A223-4A58-B40F-C76E6B6830C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C76F1D-A223-4A58-B40F-C76E6B6830C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82C76F1D-A223-4A58-B40F-C76E6B6830C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C76F1D-A223-4A58-B40F-C76E6B6830C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2737B67-0A5D-47A5-8CE6-1B1EA43A1D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2737B67-0A5D-47A5-8CE6-1B1EA43A1D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2737B67-0A5D-47A5-8CE6-1B1EA43A1D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2737B67-0A5D-47A5-8CE6-1B1EA43A1D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D188017-3270-45F2-AC70-CFA7BABA24DF}
+	EndGlobalSection
+EndGlobal
