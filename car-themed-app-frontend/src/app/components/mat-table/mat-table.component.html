@@ -1,14 +1,27 @@
+<div class="col-md-10 mx-auto" style="margin-top: 10%">
+  <div class="row">
+    <div style="float: left">
+      <h5 class="servers-header">Dealers</h5>
+      <p>Number of elements: {{ tableDataSrc.filteredData.length }}</p>
+    </div>
+
+    <div class="server-search-div">
+      <div class="form-group search-box col-12" style="padding-right: 0;">
+        <span class="fa fa-search form-control-feedback bg-transparent"></span>
+        <input type="text" class="form-control py-2 rounded-pill mr-1 pr-5 bg-transparent" placeholder="Search"
+          (keyup)="applyFilter($event.target.value)">
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-10 mx-auto">
     <div class="mat-elevation-z8">
-
-      <input matInput (keyup)="onSearchInput($event)" placeholder="Search for a name/role/skill(s)...">
-
       <table mat-table [dataSource]="tableDataSrc" matSort class="mat-elevation-z8">
         <ng-container *ngFor="let col of tableCols">
           <ng-container matColumnDef="{{ col }}">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <th mat-header-cell *matHeaderCellDef>
               {{ col | titlecase }}
             </th>
             <td mat-cell *matCellDef="let profile">{{ profile[col] }}</td>
@@ -19,7 +32,7 @@
         <tr mat-row *matRowDef="let row; columns: tableCols"></tr>
       </table>
 
-      <mat-paginator [pageSizeOptions]="[1, 2, 3, 5, 10, 20]" showFirstLastButtons></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
   </div>
 </div>
