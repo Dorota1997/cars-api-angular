@@ -2,33 +2,32 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-mat-table',
   templateUrl: './mat-table.component.html',
-  styleUrls: ['./mat-table.component.scss']
+  styleUrls: ['./mat-table.component.less'],
 })
 export class MatTableComponent implements OnInit {
-
   tableDataSrc: any;
   @Input('tableColumns') tableCols: string[];
-  @Input() tableData: {}[] = [];
+  @Input('tableData') tableData: Observable<any>;
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.tableDataSrc = new MatTableDataSource(this.tableData);
-    this.tableDataSrc.sort = this.sort;
-    this.tableDataSrc.paginator = this.paginator;
+    this.tableData.subscribe((res: any) => {
+      this.tableDataSrc = new MatTableDataSource(res);
+      this.tableDataSrc.sort = this.sort;
+      this.tableDataSrc.paginator = this.paginator;
+    });
   }
 
-  onSearchInput(ev) {
-    const searchTarget = ev.target.value;
-    this.tableDataSrc.filter = searchTarget.trim().toLowerCase();
+  applyFilter(filterValue: string) {
+    this.tableDataSrc.filter = filterValue.trim().toLowerCase();
   }
-
 }
