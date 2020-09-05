@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class DealersService {
-  private baseUrl = `${environment.api}servers`;
+  private baseUrl = environment.api + 'Dealers?PageNumber=1';
 
   constructor(
     private httpClient: HttpClient,
