@@ -1,3 +1,4 @@
+import { MatMenuButtonComponent } from '@components/mat-menu-button/mat-menu-button.component';
 import { MatTableComponent } from '@components/mat-table/mat-table.component';
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -13,11 +14,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { A11yModule } from '@angular/cdk/a11y';
+import { OrdersComponent } from '@components/orders/orders.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
     DealersComponent,
-    MatTableComponent
+    MatTableComponent,
+    OrdersComponent,
+    MatMenuButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -29,14 +37,18 @@ import { A11yModule } from '@angular/cdk/a11y';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MDBBootstrapModule.forRoot(),
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   exports: [
     A11yModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [
-    // { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: APP_BASE_HREF, useValue: '/' },
   ],
   bootstrap: [AppComponent]
 })
