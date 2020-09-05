@@ -1,0 +1,14 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger>
+  <mat-icon class="three-dots-icon">more_horiz</mat-icon>
+</button>
+<mat-menu #menu="matMenu" xPosition="before">
+  <button mat-menu-item>
+    <span>Details</span>
+  </button>
+  <button mat-menu-item>
+    <span>Edit</span>
+  </button>
+  <button mat-menu-item>
+    <span>Remove</span>
+  </button>
+</mat-menu>
