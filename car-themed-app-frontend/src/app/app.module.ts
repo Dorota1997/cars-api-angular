@@ -1,3 +1,4 @@
+import { DetailsDataComponent } from '@components/details-data/details-data.component';
 import { RemoveModalComponent } from '@components/remove-modal/remove-modal.component';
 import { MatMenuButtonComponent } from '@components/mat-menu-button/mat-menu-button.component';
 import { MatTableComponent } from '@components/mat-table/mat-table.component';
@@ -27,7 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableComponent,
     OrdersComponent,
     MatMenuButtonComponent,
-    RemoveModalComponent
+    RemoveModalComponent,
+    DetailsDataComponent
   ],
   imports: [
     BrowserModule,
