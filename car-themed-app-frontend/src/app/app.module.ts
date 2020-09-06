@@ -1,3 +1,4 @@
+import { RemoveModalComponent } from '@components/remove-modal/remove-modal.component';
 import { MatMenuButtonComponent } from '@components/mat-menu-button/mat-menu-button.component';
 import { MatTableComponent } from '@components/mat-table/mat-table.component';
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -25,7 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
     DealersComponent,
     MatTableComponent,
     OrdersComponent,
-    MatMenuButtonComponent
+    MatMenuButtonComponent,
+    RemoveModalComponent
   ],
   imports: [
     BrowserModule,
