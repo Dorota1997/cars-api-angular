@@ -9,9 +9,9 @@ import { IDealer } from '@model/dealer.model';
   styleUrls: ['./dealers.component.less'],
 })
 export class DealersComponent implements OnInit {
-  tableCols = ['id', 'name', 'address', 'country', 'postalCode'];
+  tableCols = ['name', 'address', 'country', 'postalCode'];
   dealers = new BehaviorSubject<IDealer[]>([]);
-  constructor(private dealersService: DealersService) {
+  title = 'Dealers';
     this.showDealers();
   }
 

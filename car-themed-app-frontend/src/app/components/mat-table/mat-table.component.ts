@@ -13,6 +13,7 @@ export class MatTableComponent implements OnInit {
   tableDataSrc: any;
   @Input('tableColumns') tableCols: string[];
   @Input('tableData') tableData: Observable<any>;
+  @Input('title') title: string;
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -25,6 +26,7 @@ export class MatTableComponent implements OnInit {
       this.tableDataSrc.sort = this.sort;
       this.tableDataSrc.paginator = this.paginator;
     });
+    this.tableCols.push('options');
   }
 
   applyFilter(filterValue: string) {
