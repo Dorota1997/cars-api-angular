@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class MatTableComponent implements OnInit {
   tableDataSrc: any;
+  id;
+  editable: boolean = false;
   @Input('tableColumns') tableCols: string[];
   @Input('tableData') tableData: Observable<any>;
   @Input('title') title: string;
@@ -31,5 +33,13 @@ export class MatTableComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.tableDataSrc.filter = filterValue.trim().toLowerCase();
+  }
+
+  rowId(id: number) {
+    this.id = id;
+  }
+
+  displayCounter(count){
+    this.editable = count;
   }
 }
