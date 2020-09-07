@@ -1,4 +1,4 @@
-import { IDealers } from '@model/dealer.model';
+import { IDealers, IDealer } from '@model/dealer.model';
 import { ErrorService } from '@service/error.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class DealersService {
-  private baseUrl = environment.api + 'Dealers?PageNumber=1';
+  private baseUrl = environment.api + 'Dealers';
 
   constructor(
     private httpClient: HttpClient,
@@ -19,7 +19,13 @@ export class DealersService {
 
   dealers(): Observable<IDealers> {
     return this.httpClient
-      .get<IDealers>(this.baseUrl)
+      .get<IDealers>(`${this.baseUrl}?PageNumber=1`)
+      .pipe(catchError(this.errorService.handleError));
+  }
+
+  get(id: number): Observable<IDealer> {
+    return this.httpClient
+      .get<IDealer>(`${this.baseUrl}/${id}`)
       .pipe(catchError(this.errorService.handleError));
   }
 }
