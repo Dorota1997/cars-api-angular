@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-mat-menu-button',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatMenuButtonComponent implements OnInit {
 
+  @Output() valueChange = new EventEmitter();
+  edit: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  editRow() {
+    this.edit = true;
+    this.valueChange.emit(this.edit);
+  }
+  
 }
