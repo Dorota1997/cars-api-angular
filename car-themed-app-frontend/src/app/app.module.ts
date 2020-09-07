@@ -21,6 +21,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { SatPopoverModule } from '@ncstate/sat-popover';
+import { MatInputModule } from '@angular/material/input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +49,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
+    SatPopoverModule,
+    MatInputModule
   ],
   exports: [
     A11yModule
