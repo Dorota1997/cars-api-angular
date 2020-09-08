@@ -12,7 +12,9 @@ import { Observable } from 'rxjs';
 export class MatTableComponent implements OnInit {
   tableDataSrc: any;
   id;
+  object: any = {};
   editable: boolean = false;
+  details: boolean = false;
   @Input('tableColumns') tableCols: string[];
   @Input('tableData') tableData: Observable<any>;
   @Input('title') title: string;
@@ -35,11 +37,17 @@ export class MatTableComponent implements OnInit {
     this.tableDataSrc.filter = filterValue.trim().toLowerCase();
   }
 
-  rowId(id: number) {
-    this.id = id;
+  rowId(row) {
+    console.log(row);
+    this.id = row.id;
+    this.object = row;
   }
 
   displayCounter(count){
     this.editable = count;
+  }
+
+  displayDetails(count) {
+    this.details = count;
   }
 }

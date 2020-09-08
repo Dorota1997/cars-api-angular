@@ -38,8 +38,6 @@
               {{ col | titlecase }}
             </th>
             <td mat-cell *matCellDef="let profile">
-              <span *ngIf="col !== 'options'">{{ profile[col] }}</span>
-              <div *ngIf="col === 'options'"><app-mat-menu-button></app-mat-menu-button></div>
               <div *ngIf="col !== 'options'">
                 <div *ngIf="editable && profile.id === id">
                   <mat-form-field>
@@ -53,14 +51,24 @@
               </div>
 
               <div *ngIf="col === 'options'">
-                <app-mat-menu-button [rowId]="id" (valueChange)='displayCounter($event)'></app-mat-menu-button>
+                <div *ngIf="editable && profile.id !== id">
+                  <app-mat-menu-button [rowId]="id" (valueChange)='displayCounter($event)' 
+                  (displayChange)='displayDetails($event)'></app-mat-menu-button>
+                </div>
+                <div *ngIf="editable && profile.id === id">
+                  <app-details-data [rowData]="object" (valueChange)='displayCounter($event)'></app-details-data>
+                </div>
+                <div *ngIf="!editable">
+                  <app-mat-menu-button [rowId]="id" (valueChange)='displayCounter($event)' 
+                  (displayChange)='displayDetails($event)'></app-mat-menu-button>
+                </div>
               </div>
             </td>
           </ng-container>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="tableCols"></tr>
-        <tr mat-row *matRowDef="let row; columns: tableCols" (click)="rowId(row.id)"></tr>
+        <tr mat-row *matRowDef="let row; columns: tableCols" (click)="rowId(row)"></tr>
       </table>
 
       <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
