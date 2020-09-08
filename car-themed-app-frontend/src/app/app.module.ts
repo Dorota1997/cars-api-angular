@@ -23,7 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { SatPopoverModule } from '@ncstate/sat-popover';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +50,8 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatIconModule,
     SatPopoverModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   exports: [
     A11yModule
