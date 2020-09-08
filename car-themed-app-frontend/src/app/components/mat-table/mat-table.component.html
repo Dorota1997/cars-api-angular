@@ -1,3 +1,16 @@
+<div *ngIf="details">
+  <div class="col-md-6 mx-auto">
+    <mat-card class="example-card">
+      <mat-card-content>
+        <p><span>Name: </span> {{ object.name }}</p>
+        <p><span>Address: </span> {{ object.address }}</p>
+        <p><span>Country: </span> {{ object.country }}</p>
+        <p><span>Postal Code: </span> {{ object.postalCode }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
 <div class="col-md-10 mx-auto" style="margin-top: 2%">
   <div class="row">
     <div style="float: left">
