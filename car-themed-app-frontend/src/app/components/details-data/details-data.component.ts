@@ -9,15 +9,37 @@ import { OrdersService } from '@service/orders.service';
   styleUrls: ['./details-data.component.less'],
 })
 export class DetailsDataComponent implements OnInit {
+  @Input('rowData') rowData: any;
   @Output() valueChange = new EventEmitter();
   edit: boolean = true;
 
-  constructor() { }
+  constructor(
+    private dealersService: DealersService,
+    private ordersService: OrdersService,
+    private router: Router
+  ) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
   closeEditRow() {
     this.edit = false;
     this.valueChange.emit(this.edit);
   }
 
+  updateRowData() {
+    switch (this.router.url) {
+      case '/orders':
+        this.ordersService.update(this.rowData).subscribe((res: any) => {
+          this.edit = false;
+          this.valueChange.emit(this.edit);
+        });
+        break;
+      case '/dealers':
+        this.dealersService.update(this.rowData).subscribe((res: any) => {
+          this.edit = false;
+          this.valueChange.emit(this.edit);
+        });
+        break;
+    }
+  }
 }
