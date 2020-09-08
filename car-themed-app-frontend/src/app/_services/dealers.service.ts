@@ -28,4 +28,10 @@ export class DealersService {
       .get<IDealer>(`${this.baseUrl}/${id}`)
       .pipe(catchError(this.errorService.handleError));
   }
+
+  update(dealer: IDealer) {
+    return this.httpClient
+    .put(`${this.baseUrl}`, dealer)
+    .pipe(catchError(this.errorService.handleError));
+  }
 }
