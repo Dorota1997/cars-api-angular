@@ -9,5 +9,7 @@
         public string OrderDate { get; set; }
 
         public string Dealer { get; set; }
+
+        public int DealerId { get; set; }
     }
 }
