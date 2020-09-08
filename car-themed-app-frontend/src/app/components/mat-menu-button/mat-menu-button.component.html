@@ -2,7 +2,7 @@
   <mat-icon class="three-dots-icon">more_horiz</mat-icon>
 </button>
 <mat-menu #menu="matMenu" xPosition="before">
-  <button mat-menu-item>
+  <button mat-menu-item (click)="showDetails()">
     <span>Details</span>
   </button>
   <button mat-menu-item (click)="editRow()">
