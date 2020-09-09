@@ -1,8 +1,9 @@
+import { DetailsDisplayComponent } from '@components/details-display/details-display.component';
 import { DetailsDataComponent } from '@components/details-data/details-data.component';
 import { RemoveModalComponent } from '@components/remove-modal/remove-modal.component';
 import { MatMenuButtonComponent } from '@components/mat-menu-button/mat-menu-button.component';
 import { MatTableComponent } from '@components/mat-table/mat-table.component';
-import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +33,8 @@ import { MatCardModule } from '@angular/material/card';
     OrdersComponent,
     MatMenuButtonComponent,
     RemoveModalComponent,
-    DetailsDataComponent
+    DetailsDataComponent,
+    DetailsDisplayComponent
   ],
   imports: [
     BrowserModule,
