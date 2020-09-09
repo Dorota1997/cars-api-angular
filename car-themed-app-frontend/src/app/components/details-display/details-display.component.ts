@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-details-display',
   templateUrl: './details-display.component.html',
-  styleUrls: ['./details-display.component.less']
+  styleUrls: ['./details-display.component.less'],
 })
 export class DetailsDisplayComponent implements OnInit {
+  @Input('rowData') rowData: any;
+  @Output() displayChange = new EventEmitter();
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  closeInfo() {
+    this.displayChange.emit(false);
   }
-
 }
