@@ -11,7 +11,6 @@ import { OrdersService } from '@service/orders.service';
 export class DetailsDataComponent implements OnInit {
   @Input('rowData') rowData: any;
   @Output() valueChange = new EventEmitter();
-  edit: boolean = true;
 
   constructor(
     private dealersService: DealersService,
@@ -22,22 +21,19 @@ export class DetailsDataComponent implements OnInit {
   ngOnInit() {}
 
   closeEditRow() {
-    this.edit = false;
-    this.valueChange.emit(this.edit);
+    this.valueChange.emit(false);
   }
 
   updateRowData() {
     switch (this.router.url) {
       case '/orders':
         this.ordersService.update(this.rowData).subscribe((res: any) => {
-          this.edit = false;
-          this.valueChange.emit(this.edit);
+          this.valueChange.emit(false);
         });
         break;
       case '/dealers':
         this.dealersService.update(this.rowData).subscribe((res: any) => {
-          this.edit = false;
-          this.valueChange.emit(this.edit);
+          this.valueChange.emit(false);
         });
         break;
     }
