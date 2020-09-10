@@ -3,6 +3,7 @@ export interface IOrder {
     components: string;
     orderDate: string;
     dealer: string;
+    dealerId: number;
 }
 
 export interface IOrders {
