@@ -1,0 +1,12 @@
+<mat-tab-group mat-stretch-tabs (selectedTabChange)="tabClick($event)">
+  <mat-tab label="Dealers"></mat-tab>
+  <mat-tab label="Orders"></mat-tab>
+</mat-tab-group>
+
+<div *ngIf="dealers">
+  <app-dealers></app-dealers>
+</div>
+
+<div *ngIf="orders">
+  <app-orders></app-orders>
+</div>
