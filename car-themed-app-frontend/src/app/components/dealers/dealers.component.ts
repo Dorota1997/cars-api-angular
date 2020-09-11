@@ -12,6 +12,7 @@ export class DealersComponent implements OnInit {
   tableCols = ['name', 'address', 'country', 'postalCode'];
   dealers = new BehaviorSubject<IDealer[]>([]);
   title = 'Dealers';
+  constructor(private dealersService: DealersService) {
     this.showDealers();
   }
 

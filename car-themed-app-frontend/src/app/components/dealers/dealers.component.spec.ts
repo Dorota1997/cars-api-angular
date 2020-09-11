@@ -1,9 +1,9 @@
-/* tslint:disable:no-unused-variable */
+import { DealersService } from '@service/dealers.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { DealersComponent } from './dealers.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { DealersComponent } from '@components/dealers/dealers.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorService } from '@service/error.service';
 
 describe('DealersComponent', () => {
   let component: DealersComponent;
@@ -11,9 +11,11 @@ describe('DealersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DealersComponent ]
-    })
-    .compileComponents();
+      declarations: [DealersComponent],
+      imports: [HttpClientModule],
+      providers: [DealersService, ErrorService],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
