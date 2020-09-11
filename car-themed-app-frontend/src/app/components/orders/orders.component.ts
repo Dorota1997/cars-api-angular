@@ -6,7 +6,7 @@ import { IOrder } from '@model/order.model';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.less']
+  styleUrls: ['./orders.component.less'],
 })
 export class OrdersComponent implements OnInit {
   tableCols = ['components', 'orderDate', 'dealer'];
