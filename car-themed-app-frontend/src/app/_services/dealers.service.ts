@@ -31,7 +31,7 @@ export class DealersService {
 
   update(dealer: IDealer) {
     return this.httpClient
-    .put(`${this.baseUrl}`, dealer)
-    .pipe(catchError(this.errorService.handleError));
+      .put(`${this.baseUrl}`, dealer)
+      .pipe(catchError(this.errorService.handleError));
   }
 }

@@ -14,7 +14,7 @@ describe('Service: Dealers', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [DealersService],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
     });
 
     httpMock = TestBed.get(HttpTestingController);
@@ -30,31 +30,33 @@ describe('Service: Dealers', () => {
       data: [
         {
           id: 60,
-          name: "Trapped, fast Jaguar engines delievery",
-          address: "17 The Drive",
-          postalCode: "TD41 8YT",
-          country: "United Kingdom"
+          name: 'Trapped, fast Jaguar engines delievery',
+          address: '17 The Drive',
+          postalCode: 'TD41 8YT',
+          country: 'United Kingdom',
         },
         {
           id: 61,
-          name: "Tomaz Car Engines, Accessories",
-          address: "Krucza 2",
-          postalCode: "20-022",
-          country: "Poland"
+          name: 'Tomaz Car Engines, Accessories',
+          address: 'Krucza 2',
+          postalCode: '20-022',
+          country: 'Poland',
         },
       ],
       pageNumber: 1,
       pageSize: 10,
-      nextPage: "https://localhost:44354/?pageNumber=2&pageSize=10",
-      previousPage: null
-    }
+      nextPage: 'https://localhost:44354/?pageNumber=2&pageSize=10',
+      previousPage: null,
+    };
 
     dealerService.dealers().subscribe((dealers) => {
       expect(dealers.data.length).toBe(2);
       expect(dealers).toEqual(dealerArray);
     });
 
-    const request = httpMock.expectOne(`${environment.api}Dealers?PageNumber=1`);
+    const request = httpMock.expectOne(
+      `${environment.api}Dealers?PageNumber=1`
+    );
     expect(request.request.method).toBe('GET');
     request.flush(dealerArray);
   });

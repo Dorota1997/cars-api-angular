@@ -4,7 +4,11 @@ import { RemoveModalComponent } from '@components/remove-modal/remove-modal.comp
 import { MatMenuButtonComponent } from '@components/mat-menu-button/mat-menu-button.component';
 import { MatTableComponent } from '@components/mat-table/mat-table.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  NgModule,
+  NO_ERRORS_SCHEMA,
+} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +42,7 @@ import { MainPageComponent } from '@components/main-page/main-page.component';
     RemoveModalComponent,
     DetailsDataComponent,
     DetailsDisplayComponent,
-    MainPageComponent
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,13 +64,9 @@ import { MainPageComponent } from '@components/main-page/main-page.component';
     MatCardModule,
     MatTabsModule,
   ],
-  exports: [
-    A11yModule
-  ],
+  exports: [A11yModule],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
-  providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
-  ],
-  bootstrap: [AppComponent]
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

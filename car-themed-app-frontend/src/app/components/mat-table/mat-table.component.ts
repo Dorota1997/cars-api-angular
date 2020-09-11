@@ -38,12 +38,11 @@ export class MatTableComponent implements OnInit {
   }
 
   rowId(row) {
-    console.log(row);
     this.id = row.id;
     this.object = row;
   }
 
-  displayCounter(count){
+  displayCounter(count) {
     this.editable = count;
   }
 

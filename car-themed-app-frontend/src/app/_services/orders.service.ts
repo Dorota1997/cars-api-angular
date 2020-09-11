@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrdersService {
   private baseUrl = environment.api + 'Orders';
@@ -25,8 +25,7 @@ export class OrdersService {
 
   update(order: IOrder) {
     return this.httpClient
-    .put(this.baseUrl, order)
-    .pipe(catchError(this.errorService.handleError));
+      .put(this.baseUrl, order)
+      .pipe(catchError(this.errorService.handleError));
   }
-
 }

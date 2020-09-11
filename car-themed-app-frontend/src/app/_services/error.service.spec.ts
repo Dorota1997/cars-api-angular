@@ -6,7 +6,7 @@ describe('Service: Error', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ErrorService],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
     });
   });
 
