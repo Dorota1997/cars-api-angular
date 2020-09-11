@@ -4,7 +4,7 @@ import { RemoveModalComponent } from '@components/remove-modal/remove-modal.comp
 import { MatMenuButtonComponent } from '@components/mat-menu-button/mat-menu-button.component';
 import { MatTableComponent } from '@components/mat-table/mat-table.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +25,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { SatPopoverModule } from '@ncstate/sat-popover';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MainPageComponent } from '@components/main-page/main-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,8 @@ import { MatCardModule } from '@angular/material/card';
     MatMenuButtonComponent,
     RemoveModalComponent,
     DetailsDataComponent,
-    DetailsDisplayComponent
+    DetailsDisplayComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
@@ -53,12 +57,13 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     SatPopoverModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule,
   ],
   exports: [
     A11yModule
   ],
-  schemas: [NO_ERRORS_SCHEMA],
+  schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
   ],
