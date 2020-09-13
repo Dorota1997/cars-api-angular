@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MainPageComponent } from '@components/main-page/main-page.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { MainPageComponent } from '@components/main-page/main-page.component';
     MatCardModule,
     MatTabsModule,
   ],
-  exports: [A11yModule],
+  exports: [A11yModule, MatDialogModule],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent],

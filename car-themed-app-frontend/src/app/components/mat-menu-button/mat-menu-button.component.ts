@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { RemoveModalComponent } from '@components/remove-modal/remove-modal.component';
 
 @Component({
   selector: 'app-mat-menu-button',
@@ -10,7 +12,7 @@ export class MatMenuButtonComponent implements OnInit {
   @Output() valueChange = new EventEmitter();
   @Output() displayChange = new EventEmitter();
   detailsClick: boolean = false;
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {}
 
@@ -29,5 +31,9 @@ export class MatMenuButtonComponent implements OnInit {
       left: 0,
       behavior: 'smooth',
     });
+  }
+
+  openDialog() {
+    this.dialog.open(RemoveModalComponent);
   }
 }
