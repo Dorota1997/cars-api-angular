@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class DetailsDisplayComponent implements OnInit {
   @Input('rowData') rowData: any;
+  @Input('title') title: string;
   @Output() displayChange = new EventEmitter();
   constructor() {}
 

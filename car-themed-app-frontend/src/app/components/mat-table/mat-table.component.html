@@ -1,5 +1,5 @@
 <div *ngIf="details">
-  <app-details-display [rowData]="object" (displayChange)='displayDetails($event)'></app-details-display>
+  <app-details-display [rowData]="object" [title]="title" (displayChange)='displayDetails($event)'></app-details-display>
 </div>
 
 <div class="col-md-10 mx-auto" style="margin-top: 2%">
