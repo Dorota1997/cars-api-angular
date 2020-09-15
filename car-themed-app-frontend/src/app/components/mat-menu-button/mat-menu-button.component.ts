@@ -34,6 +34,8 @@ export class MatMenuButtonComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(RemoveModalComponent);
+    this.dialog.open(RemoveModalComponent, {
+      data: { id: this.id }
+    });
   }
 }
