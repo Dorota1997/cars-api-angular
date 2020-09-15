@@ -1,5 +1,6 @@
 <div *ngIf="details">
-  <app-details-display [rowData]="object" [title]="title" (displayChange)='displayDetails($event)'></app-details-display>
+  <app-details-display [rowData]="object" [title]="title" (displayChange)='displayDetails($event)'>
+  </app-details-display>
 </div>
 
 <div class="col-md-10 mx-auto" style="margin-top: 2%">
@@ -47,10 +48,11 @@
                     (displayChange)='displayDetails($event)'></app-mat-menu-button>
                 </div>
                 <div *ngIf="editable && profile.id === id">
-                  <app-details-data [rowData]="object" (valueChange)='displayCounter($event)'></app-details-data>
+                  <app-details-data [rowData]="object" [title]="title" (valueChange)='displayCounter($event)'>
+                  </app-details-data>
                 </div>
                 <div *ngIf="!editable">
-                  <app-mat-menu-button [rowId]="id" (valueChange)='displayCounter($event)'
+                  <app-mat-menu-button [rowId]="id" [title]="title" (valueChange)='displayCounter($event)'
                     (displayChange)='displayDetails($event)'></app-mat-menu-button>
                 </div>
               </div>
