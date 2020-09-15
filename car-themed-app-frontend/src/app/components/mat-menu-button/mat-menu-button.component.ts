@@ -9,6 +9,7 @@ import { RemoveModalComponent } from '@components/remove-modal/remove-modal.comp
 })
 export class MatMenuButtonComponent implements OnInit {
   @Input('rowId') id: number;
+  @Input('title') title;
   @Output() valueChange = new EventEmitter();
   @Output() displayChange = new EventEmitter();
   detailsClick: boolean = false;
@@ -35,7 +36,7 @@ export class MatMenuButtonComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(RemoveModalComponent, {
-      data: { id: this.id }
+      data: { id: this.id, title: this.title }
     });
   }
 }
