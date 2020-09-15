@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DealersService } from '@service/dealers.service';
-import { Router } from '@angular/router';
 import { OrdersService } from '@service/orders.service';
 
 @Component({
@@ -10,12 +9,12 @@ import { OrdersService } from '@service/orders.service';
 })
 export class DetailsDataComponent implements OnInit {
   @Input('rowData') rowData: any;
+  @Input('title') title: any;
   @Output() valueChange = new EventEmitter();
 
   constructor(
     private dealersService: DealersService,
-    private ordersService: OrdersService,
-    private router: Router
+    private ordersService: OrdersService
   ) {}
 
   ngOnInit() {}
@@ -25,13 +24,13 @@ export class DetailsDataComponent implements OnInit {
   }
 
   updateRowData() {
-    switch (this.router.url) {
-      case '/orders':
+    switch (this.title) {
+      case 'Orders':
         this.ordersService.update(this.rowData).subscribe((res: any) => {
           this.valueChange.emit(false);
         });
         break;
-      case '/dealers':
+      case 'Dealers':
         this.dealersService.update(this.rowData).subscribe((res: any) => {
           this.valueChange.emit(false);
         });
