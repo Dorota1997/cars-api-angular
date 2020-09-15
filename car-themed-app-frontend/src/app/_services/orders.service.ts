@@ -28,4 +28,10 @@ export class OrdersService {
       .put(this.baseUrl, order)
       .pipe(catchError(this.errorService.handleError));
   }
+
+  remove(id: number) {
+    return this.httpClient
+    .delete(`${this.baseUrl}/${id}`)
+    .pipe(catchError(this.errorService.handleError));
+  }
 }
