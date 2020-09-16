@@ -15,6 +15,7 @@ export class MatTableComponent implements OnInit {
   object: any = {};
   editable: boolean = false;
   details: boolean = false;
+  rowNumber;
   @Input('tableColumns') tableCols: string[];
   @Input('tableData') tableData: Observable<any>;
   @Input('title') title: string;
@@ -29,12 +30,15 @@ export class MatTableComponent implements OnInit {
       this.tableDataSrc = new MatTableDataSource(res);
       this.tableDataSrc.sort = this.sort;
       this.tableDataSrc.paginator = this.paginator;
+      this.rowNumber = this.tableDataSrc.filteredData.length;
     });
     this.tableCols.push('options');
+    // this.tableDataSrc._updateChangeSubscription();
   }
 
   applyFilter(filterValue: string) {
     this.tableDataSrc.filter = filterValue.trim().toLowerCase();
+    this.rowNumber = this.tableDataSrc.filteredData.length;
   }
 
   rowId(row) {
