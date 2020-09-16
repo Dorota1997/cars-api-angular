@@ -6,6 +6,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./input-search.component.less'],
 })
 export class InputSearchComponent implements OnInit {
+  @Input('title') title;
+  @Input('rowNumber') rowNumber: number;
+  @Output() stringValue = new EventEmitter();
   constructor() {}
 
   ngOnInit() {}
