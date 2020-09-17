@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
+import { SharedDataService } from '@service/shared-data.service';
 
 @Component({
   selector: 'app-mat-table',
@@ -15,7 +16,7 @@ export class MatTableComponent implements OnInit {
   object: any = {};
   editable: boolean = false;
   details: boolean = false;
-  rowNumber;
+  rowNumber: number;
   @Input('tableColumns') tableCols: string[];
   @Input('tableData') tableData: Observable<any>;
   @Input('title') title: string;
@@ -23,7 +24,16 @@ export class MatTableComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor() {}
+  constructor(private sharedDataService: SharedDataService) {
+    this.sharedDataService._isDeleted.subscribe((res: boolean) => {
+      if (res) {
+        const newData = this.tableDataSrc.data;
+        const rowToDelete = newData.find((u) => u.id === this.id);
+        this.tableDataSrc.data = newData.filter((obj) => obj !== rowToDelete);
+        this.rowNumber = this.tableDataSrc.filteredData.length;
+      }
+    });
+  }
 
   ngOnInit() {
     this.tableData.subscribe((res: any) => {
