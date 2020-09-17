@@ -11,9 +11,9 @@ import { SharedDataService } from '@service/shared-data.service';
   styleUrls: ['./mat-table.component.less'],
 })
 export class MatTableComponent implements OnInit {
-  tableDataSrc: any;
-  id;
-  object: any = {};
+  tableDataSrc;
+  id: number;
+  object = {};
   editable: boolean = false;
   details: boolean = false;
   rowNumber: number;
@@ -43,7 +43,6 @@ export class MatTableComponent implements OnInit {
       this.rowNumber = this.tableDataSrc.filteredData.length;
     });
     this.tableCols.push('options');
-    // this.tableDataSrc._updateChangeSubscription();
   }
 
   applyFilter(filterValue: string) {
