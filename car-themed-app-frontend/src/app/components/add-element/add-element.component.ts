@@ -26,4 +26,12 @@ export class AddElementComponent implements OnInit {
   public checkError = (controlName: string, errorName: string) => {
     return this.addDealerFormGroup.controls[controlName].hasError(errorName);
   };
+
+  displayForm() {
+    this.displayForms = true;
+  }
+
+  hideForm() {
+    this.displayForms = false;
+  }
 }
