@@ -1,3 +1,46 @@
 <p>
   add-element works!
 </p>
+<div class="row">
+  <div class="col-md-6 mx-auto mt-3">
+    <mat-card class="example-card">
+      <mat-card-header style="margin-bottom: 10px">
+        <span style="text-transform: uppercase; position: absolute;">new</span>
+        <mat-icon style="float: right; margin-left: auto; cursor: pointer;">close</mat-icon>
+      </mat-card-header>
+      <div class="example-container">
+        <form [formGroup]="addDealerFormGroup" class="example-form">
+          <div>
+            <mat-form-field style="margin-right: 10%">
+              <mat-label>Name</mat-label>
+              <input matInput type="text" autocomplete="off" formControlName="dealerName">
+              <mat-error *ngIf="checkError('dealerName', 'required')">Name is required</mat-error>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Address</mat-label>
+              <input matInput type="text" autocomplete="off" formControlName="dealerAddress">
+              <mat-error *ngIf="checkError('dealerAddress', 'required')">Address is required</mat-error>
+            </mat-form-field>
+          </div>
+          
+          <div>
+            <mat-form-field style="margin-right: 10%">
+              <mat-label>Country</mat-label>
+              <input matInput type="text" autocomplete="off" formControlName="dealerCountry">
+              <mat-error *ngIf="checkError('dealerCountry', 'required')">Country is required</mat-error>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Postal Code</mat-label>
+              <input matInput type="text" autocomplete="off" formControlName="dealerPostalCode">
+              <mat-error *ngIf="checkError('dealerPostalCode', 'required')">Postal code is required</mat-error>
+            </mat-form-field>
+          </div>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!addDealerFormGroup.valid">Save</button>
+        </form>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
