@@ -1,3 +1,4 @@
+import { AddElementComponent } from '@components/add-element/add-element.component';
 import { InputSearchComponent } from '@components/input-search/input-search.component';
 import { DetailsDisplayComponent } from '@components/details-display/details-display.component';
 import { DetailsDataComponent } from '@components/details-data/details-data.component';
@@ -45,7 +46,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     DetailsDataComponent,
     DetailsDisplayComponent,
     MainPageComponent,
-    InputSearchComponent
+    InputSearchComponent,
+    AddElementComponent
   ],
   imports: [
     BrowserModule,
