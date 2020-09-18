@@ -15,24 +15,24 @@
               {{ col | titlecase }}
             </th>
             <td mat-cell *matCellDef="let profile">
-              <div *ngIf="col !== 'options'">
-                <div *ngIf="editable && profile.id === id">
+              <div *ngIf="!checkCol(col)">
+                <div *ngIf="isEditable(profile.id, id)">
                   <mat-form-field>
                     <mat-label></mat-label>
                     <input matInput type="text" [(ngModel)]="profile[col]">
                   </mat-form-field>
                 </div>
 
-                <span *ngIf="editable && profile.id !== id">{{ profile[col] }}</span>
+                <span *ngIf="isNotEditable(profile.id,id)">{{ profile[col] }}</span>
                 <span *ngIf="!editable">{{ profile[col] }}</span>
               </div>
 
-              <div *ngIf="col === 'options'">
-                <div *ngIf="editable && profile.id !== id">
+              <div *ngIf="checkCol(col)">
+                <div *ngIf="isNotEditable(profile.id,id)">
                   <app-mat-menu-button [rowId]="id" (valueChange)='displayCounter($event)'
                     (displayChange)='displayDetails($event)'></app-mat-menu-button>
                 </div>
-                <div *ngIf="editable && profile.id === id">
+                <div *ngIf="isEditable(profile.id, id)">
                   <app-details-data [rowData]="object" [title]="title" (valueChange)='displayCounter($event)'>
                   </app-details-data>
                 </div>

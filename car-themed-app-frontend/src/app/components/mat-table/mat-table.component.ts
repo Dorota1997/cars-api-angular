@@ -62,4 +62,16 @@ export class MatTableComponent implements OnInit {
   displayDetails(count) {
     this.details = count;
   }
+
+  checkCol(col: string) {
+    return col === "options" ? true : false;
+  }
+
+  isEditable(profile: number, id: number) {
+    return this.editable && profile === id ? true : false;
+  }
+
+  isNotEditable(profile: number, id: number) {
+    return this.editable && profile !== id ? true : false;
+  }
 }
