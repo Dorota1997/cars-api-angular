@@ -12,14 +12,9 @@ export class MatMenuButtonComponent implements OnInit {
   @Input('title') title;
   @Output() valueChange = new EventEmitter();
   @Output() displayChange = new EventEmitter();
-  detailsClick: boolean = false;
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {}
-
-  showId() {
-    this.detailsClick = true;
-  }
 
   editRow() {
     this.valueChange.emit(true);
