@@ -16,4 +16,12 @@ export class DetailsDisplayComponent implements OnInit {
   closeInfo() {
     this.displayChange.emit(false);
   }
+
+  displayDealers() {
+    return this.title === 'Dealers' ? true : false;
+  }
+
+  displayOrders() {
+    return this.title === 'Orders' ? true : false;
+  }
 }
