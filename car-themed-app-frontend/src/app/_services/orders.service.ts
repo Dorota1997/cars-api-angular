@@ -1,4 +1,4 @@
-import { IOrders, IOrder } from '@model/order.model';
+import { Orders, Order } from '@model/order.model';
 import { ErrorService } from '@service/error.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -17,13 +17,13 @@ export class OrdersService {
     private errorService: ErrorService
   ) {}
 
-  orders(): Observable<IOrders> {
+  orders(): Observable<Orders> {
     return this.httpClient
-      .get<IOrders>(`${this.baseUrl}?PageNumber=1`)
+      .get<Orders>(`${this.baseUrl}?PageNumber=1`)
       .pipe(catchError(this.errorService.handleError));
   }
 
-  update(order: IOrder) {
+  update(order: Order) {
     return this.httpClient
       .put(this.baseUrl, order)
       .pipe(catchError(this.errorService.handleError));

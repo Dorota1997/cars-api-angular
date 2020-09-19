@@ -1,4 +1,4 @@
-import { IDealers, IDealer } from '@model/dealer.model';
+import { Dealers, Dealer } from '@model/dealer.model';
 import { TestBed, async, inject } from '@angular/core/testing';
 import { DealersService } from './dealers.service';
 import {
@@ -26,7 +26,7 @@ describe('Service: Dealers', () => {
   }));
 
   it('be able to retrieve dealers from the API bia GET', () => {
-    const dealerArray: IDealers = {
+    const dealerArray: Dealers = {
       data: [
         {
           id: 60,

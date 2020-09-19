@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DealersService } from '@service/dealers.service';
 import { BehaviorSubject } from 'rxjs';
-import { IDealer } from '@model/dealer.model';
+import { Dealer } from '@model/dealer.model';
 
 @Component({
   selector: 'app-dealers',
@@ -10,7 +10,7 @@ import { IDealer } from '@model/dealer.model';
 })
 export class DealersComponent implements OnInit {
   tableCols = ['name', 'address', 'country', 'postalCode'];
-  dealers = new BehaviorSubject<IDealer[]>([]);
+  dealers = new BehaviorSubject<Dealer[]>([]);
   title = 'Dealers';
   constructor(private dealersService: DealersService) {
     this.showDealers();

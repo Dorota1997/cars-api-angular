@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SharedDataService {
   _isDeleted = new BehaviorSubject<boolean>(false);
-  _title = new BehaviorSubject<string>('');
+  _title = new BehaviorSubject<string>('dealers');
   constructor() {}
 
   setValue(value: boolean) {

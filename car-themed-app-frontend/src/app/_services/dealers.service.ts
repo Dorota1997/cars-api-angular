@@ -1,4 +1,4 @@
-import { IDealers, IDealer, IAddDealer } from '@model/dealer.model';
+import { Dealers, Dealer } from '@model/dealer.model';
 import { ErrorService } from '@service/error.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -17,19 +17,19 @@ export class DealersService {
     private errorService: ErrorService
   ) {}
 
-  dealers(): Observable<IDealers> {
+  dealers(): Observable<Dealers> {
     return this.httpClient
-      .get<IDealers>(`${this.baseUrl}?PageNumber=1`)
+      .get<Dealers>(`${this.baseUrl}?PageNumber=1`)
       .pipe(catchError(this.errorService.handleError));
   }
 
-  get(id: number): Observable<IDealer> {
+  get(id: number): Observable<Dealer> {
     return this.httpClient
-      .get<IDealer>(`${this.baseUrl}/${id}`)
+      .get<Dealer>(`${this.baseUrl}/${id}`)
       .pipe(catchError(this.errorService.handleError));
   }
 
-  update(dealer: IDealer) {
+  update(dealer: Dealer) {
     return this.httpClient
       .put(`${this.baseUrl}`, dealer)
       .pipe(catchError(this.errorService.handleError));

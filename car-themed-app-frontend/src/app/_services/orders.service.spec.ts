@@ -4,7 +4,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { IOrders } from '@model/order.model';
+import { Orders } from '@model/order.model';
 import { environment } from 'src/environments/environment';
 
 describe('Service: Orders', () => {
@@ -26,7 +26,7 @@ describe('Service: Orders', () => {
   }));
 
   it('be able to retrieve orders from the API bia GET', () => {
-    const orderArray: IOrders = {
+    const orderArray: Orders = {
       data: [
         {
           id: 29,
