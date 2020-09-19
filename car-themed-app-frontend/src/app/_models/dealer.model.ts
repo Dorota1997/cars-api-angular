@@ -13,3 +13,10 @@ export interface IDealers {
   nextPage: string;
   previousPage: string;
 }
+
+export interface IAddDealer {
+  name: string;
+  address: string;
+  postalCode: string;
+  country: string;
+}
