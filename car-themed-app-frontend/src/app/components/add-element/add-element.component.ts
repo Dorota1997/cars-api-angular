@@ -9,13 +9,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AddElementComponent implements OnInit {
   displayForms: boolean = false;
   addDealerFormGroup: FormGroup;
-
-  constructor() {
+  addOrderFormGroup: FormGroup;
+  dealer: string[] = ['name', 'address', 'postalCode', 'country'];
+  constructor(public fb: FormBuilder, private dealerService: DealersService) {
     this.addDealerFormGroup = new FormGroup({
-      dealerName: new FormControl('', [Validators.required]),
-      dealerAddress: new FormControl('', [Validators.required]),
-      dealerCountry: new FormControl('', [Validators.required]),
-      dealerPostalCode: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
+      address: new FormControl('', [Validators.required]),
+      postalCode: new FormControl('', [Validators.required]),
+      country: new FormControl('', [Validators.required])
     });
 
   ngOnInit() {
@@ -33,5 +34,17 @@ export class AddElementComponent implements OnInit {
 
   hideForm() {
     this.displayForms = false;
+  }
+  sendDealerData() {
+    const obj: {[k: string]: IAddDealer} = {};
+    for (var i = 0; i < this.dealer.length; i++) {
+      obj[this.dealer[i]] = this.addDealerFormGroup.get(this.dealer[i]).value
+    }
+    console.log(obj);
+
+    this.dealerService.add(obj).subscribe((res: any) => {
+      console.log('Dodano nowego dealera');
+      console.log(res);
+    });
   }
 }
