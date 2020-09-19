@@ -1,4 +1,4 @@
-import { IDealers, IDealer } from '@model/dealer.model';
+import { IDealers, IDealer, IAddDealer } from '@model/dealer.model';
 import { ErrorService } from '@service/error.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -38,6 +38,12 @@ export class DealersService {
   remove(id: number) {
     return this.httpClient
     .delete(`${this.baseUrl}/${id}`)
+    .pipe(catchError(this.errorService.handleError));
+  }
+
+  add(dealer) {
+    return this.httpClient
+    .post(`${this.baseUrl}`, dealer)
     .pipe(catchError(this.errorService.handleError));
   }
 }
