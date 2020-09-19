@@ -11,52 +11,20 @@
         <span style="text-transform: uppercase; position: absolute;">new</span>
         <mat-icon style="float: right; margin-left: auto; cursor: pointer;" (click)="hideForm()">close</mat-icon>
       </mat-card-header>
+
       <div class="example-container">
-        <form [formGroup]="addDealerFormGroup" class="example-form">
-          <ng-container *ngFor="let item of dealer; let i=index">
+        <form [formGroup]="formGroup" class="example-form">
+          <ng-container *ngFor="let item of formsName">
             <mat-form-field style="margin-right: 10%">
               <mat-label style="text-transform: capitalize;">{{item}}</mat-label>
               <input matInput type="text" autocomplete="off" [formControlName]="item">
-              <mat-error *ngIf="checkError(item, 'required')"><strong style="text-transform: capitalize;">{{item}}</strong> is
+              <mat-error *ngIf="checkError(addOrderFormGroup, item, 'required')"><strong style="text-transform: capitalize;">{{item}}</strong> is
                 required</mat-error>
             </mat-form-field>
           </ng-container>
     
-          <button mat-raised-button color="primary" type="submit" [disabled]="!addDealerFormGroup.valid"
-          (click)="sendDealerData()">Save</button> 
-        </form>
-      </div>
-
-      <!-- <div class="example-container">
-        <form [formGroup]="addOrderFormGroup" class="example-form">
-          <div>
-            <mat-form-field style="margin-right: 10%">
-              <mat-label>Name</mat-label>
-              <input matInput type="text" autocomplete="off" formControlName="dealerName">
-              <mat-error *ngIf="checkError('dealerName', 'required')">Name is required</mat-error>
-            </mat-form-field>
-  
-            <mat-form-field>
-              <mat-label>Address</mat-label>
-              <input matInput type="text" autocomplete="off" formControlName="dealerAddress">
-              <mat-error *ngIf="checkError('dealerAddress', 'required')">Address is required</mat-error>
-            </mat-form-field>
-          </div>
-          
-          <div>
-            <mat-form-field style="margin-right: 10%">
-              <mat-label>Country</mat-label>
-              <input matInput type="text" autocomplete="off" formControlName="dealerCountry">
-              <mat-error *ngIf="checkError('dealerCountry', 'required')">Country is required</mat-error>
-            </mat-form-field>
-  
-            <mat-form-field>
-              <mat-label>Postal Code</mat-label>
-              <input matInput type="text" autocomplete="off" formControlName="dealerPostalCode">
-              <mat-error *ngIf="checkError('dealerPostalCode', 'required')">Postal code is required</mat-error>
-            </mat-form-field>
-          </div>
-          <button mat-raised-button color="primary" type="submit" [disabled]="!addDealerFormGroup.valid">Save</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid"
+          (click)="sendData(formGroup)">Save</button> 
         </form>
       </div>
     </mat-card>

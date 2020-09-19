@@ -1,5 +1,8 @@
+import { SharedDataService } from './../../_services/shared-data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DealersService } from '@service/dealers.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-element',
@@ -8,37 +11,53 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddElementComponent implements OnInit {
   displayForms: boolean = false;
-  addDealerFormGroup: FormGroup;
-  addOrderFormGroup: FormGroup;
-  dealer: string[] = ['name', 'address', 'postalCode', 'country'];
-  constructor(public fb: FormBuilder, private dealerService: DealersService) {
-    this.addDealerFormGroup = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      address: new FormControl('', [Validators.required]),
-      postalCode: new FormControl('', [Validators.required]),
-      country: new FormControl('', [Validators.required])
-    });
+  formGroup: FormGroup;
+  formsName: string[] = [];
+  title: string;
 
-  ngOnInit() {
+  constructor(private dealerService: DealersService, private sharedDataService: SharedDataService) {
+    this.sharedDataService._title.subscribe((res: any) => {
+      this.title = res;
+    })
   }
 
   ngOnInit() {}
 
-  public checkError = (controlName: string, errorName: string) => {
-    return this.addDealerFormGroup.controls[controlName].hasError(errorName);
+  public checkError = (data: FormGroup, controlName: string, errorName: string) => {
+    return this.formGroup.controls[controlName].hasError(errorName);
   };
 
   displayForm() {
+    switch (this.title) {
+      case 'dealers':
+        this.formsName = ['name', 'address', 'postalCode', 'country'];
+        this.formGroup = new FormGroup({
+          name: new FormControl('', [Validators.required]),
+          address: new FormControl('', [Validators.required]),
+          postalCode: new FormControl('', [Validators.required]),
+          country: new FormControl('', [Validators.required])
+        });
+        break;
+      case 'orders':
+        this.formsName = ['components', 'orderDate', 'dealerId'];
+        this.formGroup = new FormGroup({
+          components: new FormControl('', [Validators.required]),
+          orderDate: new FormControl('', [Validators.required]),
+          dealerId: new FormControl('', [Validators.required])
+        });
+        break;
+    }
     this.displayForms = true;
   }
 
   hideForm() {
     this.displayForms = false;
   }
-  sendDealerData() {
-    const obj: {[k: string]: IAddDealer} = {};
-    for (var i = 0; i < this.dealer.length; i++) {
-      obj[this.dealer[i]] = this.addDealerFormGroup.get(this.dealer[i]).value
+
+  sendData(data: FormGroup) {
+    const obj: {[k: string]: any} = {};
+    for (var i = 0; i < this.formsName.length; i++) {
+      obj[this.formsName[i]] = data.get(this.formsName[i]).value
     }
     console.log(obj);
 
