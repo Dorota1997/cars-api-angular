@@ -1,15 +1,15 @@
-export interface IOrder {
-  id: number;
-  components: string;
-  orderDate: string;
-  dealer: string;
-  dealerId: number;
+export class Order {
+  public id: number;
+  public components: string;
+  public orderDate: string;
+  public dealer: string;
+  public dealerId: number;
 }
 
-export interface IOrders {
-  data: Array<IOrder>;
-  pageNumber: number;
-  pageSize: number;
-  nextPage: string;
-  previousPage: string;
+export class Orders {
+  public data: Order[];
+  public pageNumber: number;
+  public pageSize: number;
+  public nextPage: string;
+  public previousPage: string;
 }

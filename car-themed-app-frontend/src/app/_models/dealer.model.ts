@@ -1,22 +1,22 @@
-export interface IDealer {
-  id: number;
-  name: string;
-  address: string;
-  postalCode: string;
-  country: string;
+export class Dealer {
+  public id: number;
+  public name: string;
+  public address: string;
+  public postalCode: string;
+  public country: string;
 }
 
-export interface IDealers {
-  data: Array<IDealer>;
-  pageNumber: number;
-  pageSize: number;
-  nextPage: string;
-  previousPage: string;
+export class Dealers {
+  public data: Dealer[];
+  public pageNumber: number;
+  public pageSize: number;
+  public nextPage: string;
+  public previousPage: string;
 }
 
-export interface IAddDealer {
-  name: string;
-  address: string;
-  postalCode: string;
-  country: string;
+export class AddDealer {
+  public name: string;
+  public address: string;
+  public postalCode: string;
+  public country: string;
 }
