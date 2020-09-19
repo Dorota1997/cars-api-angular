@@ -1,6 +1,6 @@
 <div class="row">
   <div class="ml-5 mt-3 mb-0" style="margin-bottom: 0 !important; padding-bottom: 0 !important">
-    <button mat-mini-fab color="primary" (click)="displayForm()">
+    <button mat-mini-fab color="primary" (click)="displayForm();">
       <mat-icon>add</mat-icon>
     </button>
   </div>
@@ -13,6 +13,22 @@
       </mat-card-header>
       <div class="example-container">
         <form [formGroup]="addDealerFormGroup" class="example-form">
+          <ng-container *ngFor="let item of dealer; let i=index">
+            <mat-form-field style="margin-right: 10%">
+              <mat-label style="text-transform: capitalize;">{{item}}</mat-label>
+              <input matInput type="text" autocomplete="off" [formControlName]="item">
+              <mat-error *ngIf="checkError(item, 'required')"><strong style="text-transform: capitalize;">{{item}}</strong> is
+                required</mat-error>
+            </mat-form-field>
+          </ng-container>
+    
+          <button mat-raised-button color="primary" type="submit" [disabled]="!addDealerFormGroup.valid"
+          (click)="sendDealerData()">Save</button> 
+        </form>
+      </div>
+
+      <!-- <div class="example-container">
+        <form [formGroup]="addOrderFormGroup" class="example-form">
           <div>
             <mat-form-field style="margin-right: 10%">
               <mat-label>Name</mat-label>
