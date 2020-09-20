@@ -18,13 +18,15 @@
             <mat-form-field style="margin-right: 10%">
               <mat-label style="text-transform: capitalize;">{{item}}</mat-label>
               <input matInput type="text" autocomplete="off" [formControlName]="item">
-              <mat-error *ngIf="checkError(addOrderFormGroup, item, 'required')"><strong style="text-transform: capitalize;">{{item}}</strong> is
+              <mat-error *ngIf="checkError(formGroup, item, 'required')"><strong style="text-transform: capitalize;">{{item}}</strong> is
                 required</mat-error>
             </mat-form-field>
           </ng-container>
     
-          <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid"
-          (click)="sendData(formGroup)">Save</button> 
+          <div>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid"
+            (click)="sendData(formGroup)">Save</button> 
+          </div>
         </form>
       </div>
     </mat-card>
