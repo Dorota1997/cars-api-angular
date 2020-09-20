@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedDataService } from '@service/shared-data.service';
 
 @Component({
   selector: 'app-main-page',
@@ -6,19 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.less'],
 })
 export class MainPageComponent implements OnInit {
-  orders: boolean = false;
   dealers: boolean = true;
-  constructor() {}
+  dealer: string = 'dealers';
+  order: string = 'orders';
+  forms: boolean = false;
+  formsName: string[] = ['name', 'address', 'postalCode', 'country'];
+  constructor(private sharedDataService: SharedDataService) {}
 
   ngOnInit() {}
 
   tabClick(tab) {
-    if (tab.index === 0) {
-      this.dealers = true;
-      this.orders = !this.dealers;
-    } else {
-      this.dealers = false;
-      this.orders = !this.dealers;
+    switch (tab.index) {
+      case 0:
+        this.forms = false;
+        this.dealers = true;
+        this.formsName = ['name', 'address', 'postalCode', 'country'];
+        this.sharedDataService._title.next(this.dealer);
+        break;
+      case 1:
+        this.forms = false;
+        this.dealers = false;
+        this.formsName = ['components', 'orderDate', 'dealerId'];
+        this.sharedDataService._title.next(this.order);
+        break;
     }
+  }
+
+  displayForms(event) {
+    this.forms = event;
   }
 }

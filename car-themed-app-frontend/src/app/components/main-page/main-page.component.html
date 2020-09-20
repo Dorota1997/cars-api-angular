@@ -3,12 +3,12 @@
   <mat-tab label="Orders"></mat-tab>
 </mat-tab-group>
 
-<app-add-element></app-add-element>
+<app-add-element [formsName]="formsName" [displayForms]="forms" (showForms)='displayForms($event)'></app-add-element>
 
 <div *ngIf="dealers">
   <app-dealers></app-dealers>
 </div>
 
-<div *ngIf="orders">
+<div *ngIf="!dealers">
   <app-orders></app-orders>
 </div>
