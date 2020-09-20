@@ -13,3 +13,9 @@ export class Orders {
   public nextPage: string;
   public previousPage: string;
 }
+
+export class AddOrder {
+  public components: string;
+  public orderDate: string;
+  public dealerId: number;
+}
