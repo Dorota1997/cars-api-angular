@@ -1,5 +1,5 @@
 <div *ngIf="details">
-  <app-details-display [rowData]="object" [title]="title" (displayChange)='displayDetails($event)'>
+  <app-details-display [rowData]="object" [title]="title">
   </app-details-display>
 </div>
 
@@ -29,16 +29,14 @@
 
               <div *ngIf="checkCol(col)">
                 <div *ngIf="isNotEditable(profile.id,id)">
-                  <app-mat-menu-button [rowId]="id" (valueChange)='displayCounter($event)'
-                    (displayChange)='displayDetails($event)'></app-mat-menu-button>
+                  <app-mat-menu-button [rowId]="id" (valueChange)='displayCounter($event)'></app-mat-menu-button>
                 </div>
                 <div *ngIf="isEditable(profile.id, id)">
                   <app-details-data [rowData]="object" [title]="title" (valueChange)='displayCounter($event)'>
                   </app-details-data>
                 </div>
                 <div *ngIf="!editable">
-                  <app-mat-menu-button [rowId]="id" [title]="title" (valueChange)='displayCounter($event)'
-                    (displayChange)='displayDetails($event)'></app-mat-menu-button>
+                  <app-mat-menu-button [rowId]="id" [title]="title" (valueChange)='displayCounter($event)'></app-mat-menu-button>
                 </div>
               </div>
             </td>
