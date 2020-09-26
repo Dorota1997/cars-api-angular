@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DetailsDisplayComponent } from '@components/details-display/details-display.component';
 import { RemoveModalComponent } from '@components/remove-modal/remove-modal.component';
 
 @Component({
@@ -11,7 +12,6 @@ export class MatMenuButtonComponent implements OnInit {
   @Input('rowId') id: number;
   @Input('title') title;
   @Output() valueChange = new EventEmitter();
-  @Output() displayChange = new EventEmitter();
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {}
@@ -21,11 +21,9 @@ export class MatMenuButtonComponent implements OnInit {
   }
 
   showDetails() {
-    this.displayChange.emit(true);
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
+    this.dialog.open(DetailsDisplayComponent, {
+      data: { id: this.id, title: this.title },
+      minWidth: '40%',
     });
   }
 

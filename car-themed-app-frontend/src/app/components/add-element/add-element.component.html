@@ -1,35 +1,36 @@
 <div class="row">
-  <div class="ml-5 mt-3 mb-0" style="margin-bottom: 0 !important; padding-bottom: 0 !important">
+  <div class="ml-5 mt-3">
     <button mat-mini-fab color="primary" (click)="displayForm();">
       <mat-icon>add</mat-icon>
     </button>
   </div>
-  
+
   <div class="col-md-6 mx-auto mt-3" *ngIf="displayForms">
     <mat-card class="example-card">
-      <mat-card-header style="margin-bottom: 10px">
-        <span style="text-transform: uppercase; position: absolute;">new</span>
-        <mat-icon style="float: right; margin-left: auto; cursor: pointer;" (click)="hideForm()">close</mat-icon>
+      <mat-card-header>
+        <span class="title-content">new {{ removeLastChar(title) }}</span>
+        <mat-icon class="icon-close" (click)="hideForm()">close</mat-icon>
       </mat-card-header>
+      <hr>
 
       <div class="example-container">
         <form [formGroup]="formGroup" class="example-form">
           <ng-container *ngFor="let item of formsName">
-            <mat-form-field style="margin-right: 10%">
-              <mat-label style="text-transform: capitalize;">{{item}}</mat-label>
+            <mat-form-field>
+              <mat-label>{{item}}</mat-label>
               <input matInput type="text" autocomplete="off" [formControlName]="item">
-              <mat-error *ngIf="checkError(formGroup, item, 'required')"><strong style="text-transform: capitalize;">{{item}}</strong> is
-                required</mat-error>
+              <mat-error *ngIf="checkError(formGroup, item, 'required')">
+                <strong>{{item}}</strong> is required
+              </mat-error>
             </mat-form-field>
           </ng-container>
-    
+
           <div>
             <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid"
-            (click)="sendData(formGroup)">Save</button> 
+              (click)="sendData(formGroup)">Save</button>
           </div>
         </form>
       </div>
     </mat-card>
   </div>
 </div>
-
