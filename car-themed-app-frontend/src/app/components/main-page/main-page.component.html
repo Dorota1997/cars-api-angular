@@ -1,14 +1,21 @@
 <mat-tab-group mat-stretch-tabs (selectedTabChange)="tabClick($event)">
-  <mat-tab label="Dealers"></mat-tab>
-  <mat-tab label="Orders"></mat-tab>
+  <mat-tab label="Dealers">
+    <div *ngIf="dealers">
+      <app-add-element [formsName]="formsName" [displayForms]="forms" 
+      (showForms)='displayForms($event)'></app-add-element>
+    </div>
+    <app-dealers></app-dealers>
+  </mat-tab>
+  <mat-tab label="Orders">
+    <div *ngIf="!dealers">
+      <app-add-element [formsName]="formsName" [displayForms]="forms" 
+      (showForms)='displayForms($event)'></app-add-element>
+    </div>
+    <app-orders></app-orders>
+  </mat-tab>
 </mat-tab-group>
 
-<app-add-element [formsName]="formsName" [displayForms]="forms" (showForms)='displayForms($event)'></app-add-element>
 
-<div *ngIf="dealers">
-  <app-dealers></app-dealers>
-</div>
 
-<div *ngIf="!dealers">
-  <app-orders></app-orders>
-</div>
+
+
