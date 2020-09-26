@@ -23,6 +23,12 @@ export class OrdersService {
       .pipe(catchError(this.errorService.handleError));
   }
 
+  get(id: number): Observable<Order> {
+    return this.httpClient
+    .get<Order>(`${this.baseUrl}/${id}`)
+    .pipe(catchError(this.errorService.handleError));
+  }
+
   update(order: Order) {
     return this.httpClient
       .put(this.baseUrl, order)
