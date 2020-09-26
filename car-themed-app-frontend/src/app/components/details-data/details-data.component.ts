@@ -19,22 +19,30 @@ export class DetailsDataComponent implements OnInit {
 
   ngOnInit() {}
 
-  closeEditRow() {
-    this.valueChange.emit(false);
-  }
-
   updateRowData() {
     switch (this.title) {
       case 'Orders':
-        this.ordersService.update(this.rowData).subscribe((res: any) => {
-          this.valueChange.emit(false);
-        });
+        this.updateOrder();
         break;
       case 'Dealers':
-        this.dealersService.update(this.rowData).subscribe((res: any) => {
-          this.valueChange.emit(false);
-        });
+        this.updateDealer();
         break;
     }
+  }
+
+  updateOrder() {
+    this.ordersService.update(this.rowData).subscribe((res: any) => {
+      this.valueChange.emit(false);
+    });
+  }
+
+  updateDealer() {
+    this.dealersService.update(this.rowData).subscribe((res: any) => {
+      this.valueChange.emit(false);
+    });
+  }
+
+  closeEditRow() {
+    this.valueChange.emit(false);
   }
 }

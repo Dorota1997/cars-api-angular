@@ -1,3 +1,4 @@
+import { Title } from '@model/title.enum';
 import { Component, OnInit } from '@angular/core';
 import { SharedDataService } from '@service/shared-data.service';
 
@@ -8,8 +9,8 @@ import { SharedDataService } from '@service/shared-data.service';
 })
 export class MainPageComponent implements OnInit {
   dealers: boolean = true;
-  dealer: string = 'dealers';
-  order: string = 'orders';
+  dealer: Title = Title.Dealers;
+  order: Title = Title.Orders;
   forms: boolean = false;
   formsName: string[] = ['name', 'address', 'postalCode', 'country'];
   constructor(private sharedDataService: SharedDataService) {}

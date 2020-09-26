@@ -23,16 +23,24 @@ export class RemoveModalComponent implements OnInit {
   remove() {
     switch (this.data.title) {
       case 'Orders':
-        this.ordersService.remove(this.data.id).subscribe((res: any) => {
-          this.sharedDataService.setValue(true);
-        });
+        this.removeOrder();
         break;
       case 'Dealers':
-        this.dealersService.remove(this.data.id).subscribe((res: any) => {
-          this.sharedDataService.setValue(true);
-        });
+        this.removeDealer();
         break;
     }
+  }
+
+  removeOrder() {
+    this.ordersService.remove(this.data.id).subscribe(() => {
+      this.sharedDataService.setValue(true);
+    });
+  }
+
+  removeDealer() {
+    this.dealersService.remove(this.data.id).subscribe(() => {
+      this.sharedDataService.setValue(true);
+    });
   }
 
   close(): void {

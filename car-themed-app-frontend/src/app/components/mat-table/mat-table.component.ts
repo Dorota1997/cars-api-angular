@@ -15,7 +15,6 @@ export class MatTableComponent implements OnInit {
   id: number;
   object = {};
   editable: boolean = false;
-  details: boolean = false;
   rowNumber: number;
   @Input('tableColumns') tableCols: string[];
   @Input('tableData') tableData: Observable<any>;
@@ -57,10 +56,6 @@ export class MatTableComponent implements OnInit {
 
   displayCounter(count) {
     this.editable = count;
-  }
-
-  displayDetails(count) {
-    this.details = count;
   }
 
   checkCol(col: string) {

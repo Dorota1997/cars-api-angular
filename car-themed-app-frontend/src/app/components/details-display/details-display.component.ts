@@ -2,6 +2,8 @@ import { OrdersService } from '@service/orders.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DealersService } from '@service/dealers.service';
+import { Order } from '@model/order.model';
+import { Dealer } from '@model/dealer.model';
 
 @Component({
   selector: 'app-details-display',
@@ -10,7 +12,7 @@ import { DealersService } from '@service/dealers.service';
 })
 export class DetailsDisplayComponent implements OnInit {
   title: string;
-  element: any = {};
+  element = {};
   constructor(
     public dialogRef: MatDialogRef<DetailsDisplayComponent>,
     @Inject(MAT_DIALOG_DATA) public data,
@@ -38,14 +40,14 @@ export class DetailsDisplayComponent implements OnInit {
   }
 
   getOrder(id: number) {
-    this.ordersService.get(id).subscribe((res) => {
-      this.element = res;
+    this.ordersService.get(id).subscribe((order: Order) => {
+      this.element = order;
     });
   }
 
   getDealer(id: number) {
-    this.dealersService.get(id).subscribe((res) => {
-      this.element = res;
+    this.dealersService.get(id).subscribe((dealer: Dealer) => {
+      this.element = dealer;
     });
   }
 

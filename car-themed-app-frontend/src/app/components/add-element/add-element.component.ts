@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DealersService } from '@service/dealers.service';
 import { AddDealer } from '@model/dealer.model';
 import { AddOrder } from '@model/order.model';
+import { Title } from '@model/title.enum';
 
 @Component({
   selector: 'app-add-element',
@@ -28,6 +29,10 @@ export class AddElementComponent implements OnInit {
 
   ngOnInit() {}
 
+  public removeLastChar(title: string) {
+    return title.slice(0, -1);
+  }
+  
   public checkError = (
     data: FormGroup,
     controlName: string,
@@ -39,7 +44,7 @@ export class AddElementComponent implements OnInit {
   displayForm() {
     this.showForms.emit(true);
     switch (this.title) {
-      case 'dealers':
+      case Title.Dealers:
         this.formGroup = new FormGroup({
           name: new FormControl('', [Validators.required]),
           address: new FormControl('', [Validators.required]),
@@ -47,7 +52,7 @@ export class AddElementComponent implements OnInit {
           country: new FormControl('', [Validators.required]),
         });
         break;
-      case 'orders':
+      case Title.Orders:
         this.formGroup = new FormGroup({
           components: new FormControl('', [Validators.required]),
           orderDate: new FormControl('', [Validators.required]),
