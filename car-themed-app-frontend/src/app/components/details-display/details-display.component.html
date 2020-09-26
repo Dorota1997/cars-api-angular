@@ -1,19 +1,25 @@
-<div class="col-md-6 mx-auto mt-5">
-  <mat-card class="example-card">
-    <mat-card-header style="margin-bottom: 10px">
-      <span style="text-transform: uppercase; position: absolute;">{{title}} details</span>
-      <mat-icon style="float: right; margin-left: auto; cursor: pointer;" (click)="closeInfo()">close</mat-icon>
-    </mat-card-header>
-    <mat-card-content *ngIf="displayDealers()">
-      <p><strong>Name: </strong> {{ rowData.name }}</p>
-      <p><strong>Address: </strong> {{ rowData.address }}</p>
-      <p><strong>Country: </strong> {{ rowData.country }}</p>
-      <p><strong>Postal Code: </strong> {{ rowData.postalCode }}</p>
-    </mat-card-content>
-    <mat-card-content *ngIf="displayOrders()">
-      <p><strong>Components: </strong> {{ rowData.components }}</p>
-      <p><strong>Order Date: </strong> {{ rowData.orderDate }}</p>
-      <p><strong>Dealer: </strong> {{ rowData.dealer }}</p>
-    </mat-card-content>
-  </mat-card>
+<mat-card-title>
+  {{ removeLastChar(title) }} details
+  <mat-icon class="title-icon" [inline]="true">directions_car</mat-icon>
+</mat-card-title>
+<hr>
+<div mat-dialog-content *ngIf="displayDealers()">
+  <mat-card-subtitle class="location-content">
+    <mat-icon class="location-icon" [inline]="true">location_on</mat-icon>
+    <span>{{ element.address }}</span><br>
+    <span><strong>Name: </strong> {{ element.name }}</span><br>
+    <span><strong>Country: </strong> {{ element.country }}</span><br>
+    <span><strong>Postal Code: </strong> {{ element.postalCode }}</span><br>
+  </mat-card-subtitle>
+</div>
+<div mat-dialog-content *ngIf="displayOrders()">
+  <mat-card-subtitle class="location-content">
+    <mat-icon class="location-icon" style="margin-right: 5px" [inline]="true">event</mat-icon>
+    <span>{{ element.orderDate }}</span><br>
+    <span><strong>Components: </strong> {{ element.components }}</span><br>
+    <span><strong>Dealer: </strong> {{ element.dealer }}</span><br>
+  </mat-card-subtitle>
+</div>
+<div class="button-actions">
+  <button mat-button (click)="close()">Close</button>
 </div>
