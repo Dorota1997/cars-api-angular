@@ -1,4 +1,4 @@
-import { Dealers, Dealer } from '@model/dealer.model';
+import { Dealers, Dealer, AddDealer } from '@model/dealer.model';
 import { TestBed, async, inject } from '@angular/core/testing';
 import { DealersService } from './dealers.service';
 import {
@@ -59,5 +59,48 @@ describe('Service: Dealers', () => {
     );
     expect(request.request.method).toBe('GET');
     request.flush(dealerArray);
+  });
+
+  it('should update dealer', () => {
+    const dealer = {
+      id: 172,
+      name: 'Volkswagen Car Service',
+      address: '21 Park Road',
+      postalCode: '80 219',
+      country: 'USA'
+    }
+    dealerService.update(dealer).subscribe((dealer: Dealer) => {
+      expect(dealer).toBe(dealer);
+    });
+
+    const request = httpMock.expectOne(`${environment.api}Dealers`);
+    expect(request.request.method).toBe('PUT');
+    request.flush(dealer);
+  });
+
+  it('should create dealer', () => {
+    const dealer = {
+      name: 'BMW Car Service',
+      address: '44 River Street',
+      postalCode: '90 432',
+      country: 'USA'
+    }
+    dealerService.add(dealer).subscribe((dealer: AddDealer) => {
+      expect(dealer).toEqual(dealer);
+    });
+
+    const request = httpMock.expectOne(`${environment.api}Dealers`);
+    expect(request.request.method).toEqual('POST');
+    expect(request.request.body).toEqual(dealer);
+  });
+
+  it('should delete dealer', () => {
+    var dealerId = 172
+    dealerService.remove(dealerId).subscribe(() => {
+      expect().nothing();
+    });
+
+    const request = httpMock.expectOne(`${environment.api}Dealers/${dealerId}`);
+    expect(request.request.method).toEqual('DELETE');
   });
 });
