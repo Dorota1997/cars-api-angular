@@ -40,4 +40,10 @@ export class OrdersService {
     .delete(`${this.baseUrl}/${id}`)
     .pipe(catchError(this.errorService.handleError));
   }
+
+  add(order) {
+    return this.httpClient
+    .post(`${this.baseUrl}`, order)
+    .pipe(catchError(this.errorService.handleError));
+  }
 }
