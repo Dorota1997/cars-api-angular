@@ -1,9 +1,8 @@
+import { OrdersService } from '@service/orders.service';
 import { SharedDataService } from '@service/shared-data.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DealersService } from '@service/dealers.service';
-import { AddDealer } from '@model/dealer.model';
-import { AddOrder } from '@model/order.model';
 import { Title } from '@model/title.enum';
 
 @Component({
@@ -20,7 +19,8 @@ export class AddElementComponent implements OnInit {
 
   constructor(
     private dealerService: DealersService,
-    private sharedDataService: SharedDataService
+    private sharedDataService: SharedDataService,
+    private orderService: OrdersService
   ) {
     this.sharedDataService._title.subscribe((res: any) => {
       this.title = res;
@@ -32,7 +32,7 @@ export class AddElementComponent implements OnInit {
   public removeLastChar(title: string) {
     return title.slice(0, -1);
   }
-  
+
   public checkError = (
     data: FormGroup,
     controlName: string,
@@ -69,13 +69,30 @@ export class AddElementComponent implements OnInit {
   }
 
   sendData(data: FormGroup) {
-    const obj: { [k: string]: AddDealer | AddOrder } = {};
+    const obj: { [k: string]: any } = {};
     for (var i = 0; i < this.formsName.length; i++) {
       obj[this.formsName[i]] = data.get(this.formsName[i]).value;
     }
 
-    this.dealerService.add(obj).subscribe((res: any) => {
-      console.log(res);
-    });
+    if (obj.dealerId) {
+      obj.dealerId = parseInt(obj.dealerId);
+    }
+
+    switch (this.title) {
+      case Title.Dealers:
+        this.addDealer(obj);
+        break;
+      case Title.Orders:
+        this.addOrder(obj);
+        break;
+    }
+  }
+
+  addDealer(dealer) {
+    this.dealerService.add(dealer).subscribe(() => {});
+  }
+
+  addOrder(order) {
+    this.orderService.add(order).subscribe(() => {});
   }
 }
