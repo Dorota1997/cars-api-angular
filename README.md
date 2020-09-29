@@ -2,7 +2,8 @@
 
 <h4>About project</h4>
 
-<p align="justify">Cars App is a frontend implementation for car project in .NET Core 3.1. I created software to improve good practices in Angular. <br>
+<p align="justify">Cars App is a frontend implementation for car project in .NET Core 3.1. <br>
+  I created software to improve good practices in Angular. <br>
 The application consists of two sections: dealers and orders. You can create, update, remove and get details about dealer/order. You can also filter table data.
 
 Used Angular 10 </p>
