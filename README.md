@@ -18,7 +18,7 @@
   1. Open frontend. <br>
   2. Run <code>npm run start</code> from terminal <br>
   3. Open backend. <br>
-  4. Compile & Run project. (Note that app uses MSSQL as Database provider)
+  4. Compile & Run project. (Note that app uses MSSQL as Database provider) <br>
   5. Frontend is available at: <code>http://localhost:4200/</code>
 </p>
 
