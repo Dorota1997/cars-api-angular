@@ -20,7 +20,7 @@ namespace car_themed_app.Handlers.Dealers
         public async Task<CountedElementsAndPagesDto> Handle(GetTotalDealerElementsAndPagesQuery request, CancellationToken cancellationToken)
         {
             var result = await _dealersRepository.GetTotalElementsAndPagesNumber(request.PageSize);
-            return await Task.FromResult(result);
+            return result;
         }
     }
 }
