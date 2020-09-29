@@ -2,7 +2,7 @@
 
 <h4>About</h4>
 
-<p align="justify">Frontend implementation for <a href="https://github.com/trolit/car-themed-API">car-themed-API made in .NET Core 3.1</a> done in Angular to practise framework and use best practises. App consists of two sections: dealers and order that were ready to use from backend. With project running you can perform typical CRUD operations for both sections. You can also filter table data.</p>
+<p align="justify">Frontend implementation for modified <a href="https://github.com/trolit/car-themed-API">car-themed-API made in .NET Core 3.1</a> done in Angular to practise framework and use best practises. App consists of two sections: dealers and order that were ready to use from backend. With project running you can perform typical CRUD operations for both sections. You can also filter table data.</p>
 
 <br/>
 

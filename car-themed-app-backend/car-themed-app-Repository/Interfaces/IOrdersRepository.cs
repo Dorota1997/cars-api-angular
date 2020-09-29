@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace car_themed_app_Repository.Interfaces
 {
-    public interface IOrdersRepository
+    public interface IOrdersRepository : IBaseRepository
     {
         Task<List<Order>> GetAllOrdersAsync(PaginationFilter paginationFilter = null);
 

@@ -1,5 +1,6 @@
 ﻿using car_themed_app.Repository;
 using car_themed_app_DataLayer;
+using car_themed_app_Repository.Dtos;
 using car_themed_app_Repository.Interfaces;
 using car_themed_app_Repository.Models;
 using Microsoft.EntityFrameworkCore;
@@ -62,6 +63,26 @@ namespace car_themed_app.Repositories
         public async Task<bool> CheckIfOrderExists(int orderId)
         {
             return await _context.Orders.AnyAsync(o => o.Id == orderId);
+        }
+
+        public async Task<CountedElementsAndPagesDto> GetTotalElementsAndPagesNumber(int pageSize)
+        {
+            int totalElements = await _context.Orders.CountAsync();
+            int totalPages = 0;
+            if (totalElements != 0)
+            {
+                totalPages = totalElements / pageSize;
+                int remainder = totalElements % pageSize;
+                if (remainder != 0)
+                {
+                    totalPages += 1;
+                }
+            }
+            return await Task.FromResult(new CountedElementsAndPagesDto()
+            {
+                TotalElements = totalElements,
+                TotalPages = totalPages
+            });
         }
     }
 }
