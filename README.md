@@ -12,7 +12,7 @@ Used Angular 10 </p>
 1. npm run start
 </p>
 
-<h4>Zrzuty ekranu</h4>
+<h4>Screen shots</h4>
 
 | | |
 | :---: | :---: |
