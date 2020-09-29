@@ -1,20 +1,30 @@
-<h1>Cars App</h1>
+<h1>Cars App - frontend</h1>
 
-<h4>About project</h4>
+<h4>About</h4>
 
-<p align="justify">Cars App is a frontend implementation for car project in .NET Core 3.1. </p>
-<p align="justify">I created software to improve good practices in Angular. </p>
-<p align="justify">The application consists of two sections: dealers and orders. You can create, update, remove and get details about dealer/order. You can also filter table data.</p>
-<p align="justify">Used Angular 10, Bootstrap 4, Angular Material </p>
+<p align="justify">Frontend implementation for <a href="https://github.com/trolit/car-themed-API">car-themed-API made in .NET Core 3.1</a> done in Angular to practise framework and use best practises. App consists of two sections: dealers and order that were ready to use from backend. With project running you can perform typical CRUD operations for both sections. You can also filter table data.</p>
 
-<p align="justify">To run application:<br>
-  1. Open frontend in your favourite editor <br>
-  2. Write <i>npm run start</i> in terminal <br>
-  3. Open backend in VS <br>
-  4. Click IIS Express to run
+<br/>
+
+<strong>Tools & Technologies</strong>
+
+<p align="justify">Angular 10, Bootstrap 4, Angular Material, VSC, VS2019 </p>
+
+<br/>
+
+<strong>Running application</strong>
+
+<p align="justify">In order to run application:<br>
+  1. Open frontend. <br>
+  2. Run <code>npm run start</code> from terminal <br>
+  3. Open backend. <br>
+  4. Compile & Run project. (Note that app uses MSSQL as Database provider)
+  5. Frontend is available at: <code>http://localhost:4200/</code>
 </p>
 
-<h4>Screen shots</h4>
+<br/>
+
+<h4>Screenshots</h4>
 
 | | |
 | :---: | :---: |
