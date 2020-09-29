@@ -1,5 +1,6 @@
 ﻿using car_themed_app.Repository;
 using car_themed_app_DataLayer;
+using car_themed_app_Repository.Dtos;
 using car_themed_app_Repository.Interfaces;
 using car_themed_app_Repository.Models;
 using Microsoft.EntityFrameworkCore;
@@ -61,6 +62,26 @@ namespace car_themed_app.Repositories
         public async Task<bool> CheckIfDealerExists(int dealerId)
         {
             return await _context.Dealers.AnyAsync(o => o.Id == dealerId);
+        }
+
+        public async Task<CountedElementsAndPagesDto> GetTotalElementsAndPagesNumber(int pageSize)
+        {
+            int totalElements = await _context.Dealers.CountAsync();
+            int totalPages = 0;
+            if (totalElements != 0)
+            {
+                totalPages = totalElements / pageSize;
+                int remainder = totalElements % pageSize;
+                if (remainder != 0)
+                {
+                    totalPages += 1;
+                }
+            }      
+            return await Task.FromResult(new CountedElementsAndPagesDto()
+            {
+                TotalElements = totalElements,
+                TotalPages = totalPages
+            });
         }
     }
 }

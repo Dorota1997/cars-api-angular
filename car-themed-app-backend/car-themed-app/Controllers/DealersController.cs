@@ -1,6 +1,7 @@
 ﻿using car_themed_app.Commands.Dealers;
 using car_themed_app.Queries;
 using car_themed_app.Queries.Dealers;
+using car_themed_app_Repository.Dtos;
 using car_themed_app_Repository.Dtos.DealerDtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -57,6 +58,14 @@ namespace car_themed_app.Controllers
             var command = new UpdateDealerCommand(data);
             var result = await _mediator.Send(command);
             return result.ErrorMessage == string.Empty ? (IActionResult)Ok() : NotFound(result.ErrorMessage);
+        }
+
+        [HttpGet("total/{pageSize}")]
+        public async Task<IActionResult> GetTotalDealerElementsAndPages(int pageSize)
+        {
+            var query = new GetTotalDealerElementsAndPagesQuery(pageSize);
+            var result = await _mediator.Send(query);
+            return Ok(result);
         }
     }
 }
