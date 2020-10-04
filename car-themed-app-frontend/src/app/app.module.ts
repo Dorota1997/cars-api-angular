@@ -1,3 +1,4 @@
+import { PageButtonsDirective } from './_directives/page-buttons.directive';
 import { AddElementComponent } from '@components/add-element/add-element.component';
 import { InputSearchComponent } from '@components/input-search/input-search.component';
 import { DetailsDisplayComponent } from '@components/details-display/details-display.component';
@@ -47,7 +48,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     DetailsDisplayComponent,
     MainPageComponent,
     InputSearchComponent,
-    AddElementComponent
+    AddElementComponent,
+    PageButtonsDirective
   ],
   imports: [
     BrowserModule,
