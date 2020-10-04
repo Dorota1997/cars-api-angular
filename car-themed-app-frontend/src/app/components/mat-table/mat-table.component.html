@@ -43,7 +43,9 @@
         <tr mat-row *matRowDef="let row; columns: tableCols" (click)="rowId(row)"></tr>
       </table>
 
-      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+      <mat-paginator appPageButtons [length]="tableDataSrc.data.length" [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
     </div>
   </div>
 </div>
